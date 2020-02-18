@@ -64,7 +64,7 @@ Para executar os testes basta abrir a raiz do projeto e executar o comando
 vendor/bin/phpunit
 ```
 
-## Seeders
+## Semear banco de dados
 
 Execute o comando para semear o banco de dados
 
