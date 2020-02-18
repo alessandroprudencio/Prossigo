@@ -73,7 +73,7 @@ php artisan db:seed
 ```
 
 
-## Autor
+## Contato
 
 * **Alessandro Prudencio** 
 * **alessandroconectado@gmail.com** 
