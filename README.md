@@ -1,25 +1,21 @@
 # Teste Prossigo
 
-Página com formulário para entrar em contato e  listagem de contatos realizados..
+Página com formulário para entrar em contato e listagem de contatos realizados.
 
 ## Começando
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Caso venha ocorrer erros na implantação estarei a disposição para auxiliar.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
+### Requisitos
 
 ```
 php": "^7.2"
- "laravel/framework": "^6.2"
- Composer 
+laravel/framework: "^6.2"
+composer
+Mysql
 ```
 
-### Installing
-
-
-Primeiro passo
+### Instalar
 
 Para instalar as dependências , execute o comando na raiz do projeto
 
@@ -34,12 +30,11 @@ php artisan migrate
 ```
 
 
-Estartando nosso servidor
+Iniciando  servidor
 
 ```
 php artisan serve ou php artisan serve --port=8080
 ```
-
 
 ## Executando os testes
 
@@ -48,8 +43,7 @@ Para executar os teste basta abrir a raiz do projeto e executar
 vendor/bin/phpunit
 ```
 
-
-## Authors
+## Autor
 
 * **Alessandro Prudencio** 
 
