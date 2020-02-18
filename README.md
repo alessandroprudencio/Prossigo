@@ -42,7 +42,7 @@ php artisan key:generate
 ```
 
 
-Execute as migrações do banco de dados ( defina a conexão com o banco de dados em .env antes de migrar )
+Execute as migrações do banco de dados **( defina a conexão com o banco de dados em .env antes de migrar )**
 
 ```
 php artisan migrate
@@ -54,19 +54,19 @@ Iniciando  servidor
 php artisan serve ou php artisan serve --port=8080
 ```
 
-Agora você pode acessar o servidor em http://localhost:{port}
+Agora você pode acessar o servidor em http://localhost:8000
 
 
 ## Executando os testes
 
-Para executar os teste basta abrir a raiz do projeto e executar 
+Para executar os testes basta abrir a raiz do projeto e executar o comando
 ```
 vendor/bin/phpunit
 ```
 
 ## Seeders
 
-Execute o semeador de banco de dados e pronto
+Execute o comando para semear o banco de dados
 
 ```
 php artisan db:seed
@@ -76,4 +76,6 @@ php artisan db:seed
 ## Autor
 
 * **Alessandro Prudencio** 
+* **alessandroconectado@gmail.com** 
+* **(67) 99269-6705** 
 
