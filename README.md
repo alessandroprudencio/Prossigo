@@ -9,10 +9,9 @@ Essas instruções fornecerão uma cópia do projeto em execução na sua máqui
 ### Requisitos
 
 ```
-php": "^7.2"
-laravel/framework: "^6.2"
-composer
-Mysql
+php": ^7.2
+laravel/framework: ^6.2
+composer: ^1.9.3
 ```
 
 ### Instalação
