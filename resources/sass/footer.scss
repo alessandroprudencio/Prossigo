@@ -1,0 +1,12 @@
+.page-footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  .dropdown-divider {
+    border-top: 1px solid #f7f7f7;
+  }
+  p {
+    color: white;
+    font-size: 13px;
+  }
+}

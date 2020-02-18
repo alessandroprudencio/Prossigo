@@ -1,0 +1,92 @@
+@import "../sass/_variables.scss";
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: $font-family-sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  background: #c850c0;
+  background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
+  background: -o-linear-gradient(45deg, #4158d0, #c850c0);
+  background: -moz-linear-gradient(45deg, #4158d0, #c850c0);
+  background: linear-gradient(45deg, #4158d0, #c850c0);
+}
+#app {
+  div {
+    main {
+      min-height: calc(100vh - 104.8px - 59px);
+      section {
+        .slide-fade-enter-active {
+          transition: all 0.3s ease;
+        }
+        .slide-fade-leave-active {
+          transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+        }
+        .slide-fade-enter,
+        .slide-fade-leave-to {
+          transform: translateX(10px);
+          opacity: 0;
+        }
+
+        div {
+          table {
+            border-collapse: collapse;
+            // background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 14px -2px #000000;
+            overflow: hidden;
+            thead {
+              tr {
+                height: 51px;
+                background: #36304a;
+                color: #fff;
+              }
+              th {
+                border-top: 0px;
+                border-bottom: 0px;
+              }
+            }
+            tbody {
+              background-color: #fff;
+              color: #808080;
+            }
+            tbody tr:hover {
+              color: #555555;
+              background-color: #f5f5f5;
+              cursor: pointer;
+            }
+          }
+          form {
+            background-color: transparent;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 14px -2px #000000;
+            padding: 2%;
+            .custom-file-input ~ .custom-file-label::after {
+              content: "Buscar";
+            }
+            h2 {
+              color: white;
+            }
+            button {
+              border-radius: 15px;
+              border: none;
+              text-transform: uppercase;
+              font-weight: bold;
+              height: 42px;
+            }
+            .invalid-feedback {
+              color: white;
+              font-style: italic;
+            }
+          }
+        }
+      }
+    }
+  }
+}
