@@ -15,7 +15,14 @@ composer
 Mysql
 ```
 
-### Instalar
+### Instalação
+
+
+Clonar o repositório
+```
+https://github.com/alessandroprudencio/Teste-Prossigo.git
+```
+
 
 Para instalar as dependências , execute o comando na raiz do projeto
 
@@ -23,12 +30,24 @@ Para instalar as dependências , execute o comando na raiz do projeto
 composer install
 ```
 
-Criar as tabelas no banco de dados 
+Copie o arquivo env de exemplo e faça as alterações necessárias na configuração no arquivo .env
+
+```
+cp .env.example .env
+```
+
+Gere uma nova chave de aplicativo
+
+```
+php artisan key:generate
+```
+
+
+Execute as migrações do banco de dados ( defina a conexão com o banco de dados em .env antes de migrar )
 
 ```
 php artisan migrate
-```
-
+``` 
 
 Iniciando  servidor
 
@@ -36,12 +55,24 @@ Iniciando  servidor
 php artisan serve ou php artisan serve --port=8080
 ```
 
+Agora você pode acessar o servidor em http://localhost:{port}
+
+
 ## Executando os testes
 
 Para executar os teste basta abrir a raiz do projeto e executar 
 ```
 vendor/bin/phpunit
 ```
+
+## Seeders
+
+Execute o semeador de banco de dados e pronto
+
+```
+php artisan db:seed
+```
+
 
 ## Autor
 
