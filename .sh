@@ -101,6 +101,8 @@ MAIL_RECEIVES_MESSAGE=$MailReceivesMessage
 MAIL_FROM_NAME='Alessadro - Teste Prossigo'
 " > .env
 
+composer install
+
 php artisan migrate:refresh
 
 php artisan key:generate
