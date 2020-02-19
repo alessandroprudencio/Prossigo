@@ -21,7 +21,7 @@ export default new Vuex.Store({
 
     mutations: {
         setIpAddress(state, payload) {
-            state.ip_address = payload.ip
+            state.ip_address = payload
         },
         setContacts(state, payload) {
             state.contacts = payload
@@ -30,8 +30,8 @@ export default new Vuex.Store({
 
     actions: {
         setIpAddress(context) {
-            $.getJSON('https://api.ipify.org?format=jsonp&callback=?', function (data) {
-                context.commit('setIpAddress', data)
+            $.getJSON('https://api.ipify.org?format=json', function (data) {
+                context.commit('setIpAddress', data.ip)
             });
         },
         loadContacts({ commit }, page = 1) {
@@ -40,6 +40,8 @@ export default new Vuex.Store({
                 .catch(error => console.log(error))
         },
         saveContact({ commit }, payload) {
+            // this.message.sender_ip = this.$store.getters.ipAddress;
+            
             axios.post(`${resource}`, payload, {
                 headers: {
                     'Content-Type': "multipart/form-data; charset=utf-8; boundary=" + Math.random().toString().substr(2)

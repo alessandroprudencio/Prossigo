@@ -14,22 +14,25 @@ laravel: ^6.2
 composer: ^1.9.3
 ```
 
-### Instalação Automatizada
 
-Dentro do projeto existe um arquivo .sh, abra a raiz execute o comando :
-```
-\.sh
-```
-Ao ser executado ira  verificar o php, laravel e composer instalado e sua maquina, em seguida solicitar para configurar o projeto para ser executado ** cuidado com os caracteres especiais ** pois esse arquivo sera usado para que tudo funcione corretamente, mas claro ocorra algum problema voce mesmo poder editar seu arquivo .env .Se tudo ocorrer bem, sera criado um arquivo ** .env **  no diretorio do projeto...Agora o script ira executar a criação das tabelas no banco de dados...Logo em seguida vem os testes, caso ocorra falha o serviço é interrompido, se não houver ele continuara e será iniciado o servidor para uso...  **
-
-
-### Instalação
+### Instalação Manual
 
 
 Clonar o repositório
 ```
 https://github.com/alessandroprudencio/Teste-Prossigo.git
 ```
+
+Certifique que de sue banco de dados ja pronto para ser acessado.
+
+** Instalação Automatizada **
+
+Dentro do projeto existe um arquivo .sh, abra o projeto em algum Bash e na raiz execute o comando :
+```
+\.sh
+```
+Ao ser executado ira  verificar o php, laravel e composer instalados em sua maquina, em seguida sera preciso configurar o projeto para ser executado, mas fique tranquilo! os campos irão aparecer na tela, ** cuidado com os caracteres especiais ** pois esse arquivo sera usado para que tudo funcione corretamente, mas caso ocorra algum problema voce mesmo podera ver e editar um arquivo co nome de ** .env ** .Se tudo ocorrer bem, script ira executar a criação das tabelas no banco de dados...Logo em seguida vem os testes, caso ocorra algum teste não passe  o serviço é interrompido, se todos os testes retornarem valídos a aplicaçaõ será iniciada e pronto para uso...
+
 
 
 Para instalar as dependências , execute o comando na raiz do projeto : 
@@ -48,6 +51,12 @@ Gere uma nova chave de aplicativo :
 
 ```
 php artisan key:generate
+```
+
+Para criar o link simbólico, você pode usar o comando :
+
+```
+php artisan storage:link
 ```
 
 

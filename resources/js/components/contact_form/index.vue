@@ -106,8 +106,8 @@ export default {
       formData: new FormData()
     };
   },
-  computed: {
-    ...mapActions(["setIpAddress"])
+  created() {
+    this.$store.dispatch("setIpAddress");
   },
   validations: {
     message: validationContactForm

@@ -1,9 +1,8 @@
 #!/bin/bash
 
-
 PHPVersion=$(php -r 'echo PHP_MAJOR_VERSION;')
-InstalledComposer=$(Composer --version|grep --only-matching --perl-regexp "()\d+\.\\d+\.\\d+");
-InstalledLaravel=$(laravel -v|grep --only-matching --perl-regexp "()\d+\.\\d+\.\\d+");
+InstalledComposer=$(composer --version | grep --only-matching --perl-regexp "()\d+\.\\d+\.\\d+")
+InstalledLaravel=$(laravel -v | grep --only-matching --perl-regexp "()\d+\.\\d+\.\\d+")
 
 RecommendedComposer='1.9.3'
 RecommendedLaravel='3.0.1'
@@ -11,8 +10,6 @@ RecommendedLaravel='3.0.1'
 RED="\033[1;31m"
 GREEN="\033[1;32m"
 NOCOLOR="\033[0m"
-
-
 
 if [ "$PHPVersion" -le "6" ]; then
     echo -e "${RED} Por favor atualize seu php e tente novamente!"
@@ -24,23 +21,20 @@ if [ ! which -a "composer" ]; then
     exit
 fi
 
-if [ "yes" = "$(echo | awk "($InstalledComposer < $RecommendedComposer) { print \"yes\"; }")" ]; then 
+if [ "yes" = "$(echo | awk "($InstalledComposer < $RecommendedComposer) { print \"yes\"; }")" ]; then
     echo -e "${RED} Por favor atualize seu composer e tente novamente!"
     exit
 fi
-
 
 if [ ! which -a "laravel" ]; then
     echo -e "${RED} Por favor instale o laravel e tente novamente !"
     exit
 fi
 
-
-if [ "yes" = "$(echo | awk "($InstalledLaravel < $RecommendedLaravel) { print \"yes\"; }")" ]; then 
+if [ "yes" = "$(echo | awk "($InstalledLaravel < $RecommendedLaravel) { print \"yes\"; }")" ]; then
     echo -e "${RED} Por favor atualize seu Laravel e tente novamente !"
     exit
 fi
-
 
 echo Ola, vamos configurar esta aplicação, vamos começar pelo banco de dados...
 
@@ -69,13 +63,12 @@ echo MAIL_ENCRYPTION '( gmail use tls )' ?
 read MailEncryption
 
 echo MAIL_PASSWORD '( ex: seua_senha@2 )' ?
-read MailUsername
+read MailPassword
 
 echo MAIL_RECEIVES_MESSAGE '(  Após do prenchimento do formulário para qual email sera enviados os dados submetidos ? )'
 read MailReceivesMessage
 
-
-APP_NAME="Alessadro - Teste Prossigo"
+echo "APP_NAME='Alessadro - Teste Prossigo'
 APP_ENV=local
 APP_KEY=
 APP_DEBUG=true
@@ -103,15 +96,16 @@ MAIL_USERNAME=$MailUsername
 MAIL_PASSWORD=$MailPassword
 MAIL_ENCRYPTION=$MailEncryption
 MAIL_RECEIVES_MESSAGE=$MailReceivesMessage
-MAIL_FROM_NAME="${APP_NAME}"
-" > teste.env
+MAIL_FROM_NAME='Alessadro - Teste Prossigo'
+" > test.env
 
+php artisan migrate:refresh
 
+php artisan key:generate
 
-# php artisan migrate
+php artisan storage:link
 
-
-echo  iniciando testes...
+echo iniciando testes...
 
 test= vendor/bin/phpunit
 
@@ -121,8 +115,4 @@ if [[ $i != 0 ]]; then
     exit
 fi
 
-
-
 php artisan serve
-
-
