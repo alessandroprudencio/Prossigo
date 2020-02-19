@@ -1910,6 +1910,7 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _validations_form_contact__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../validations/form_contact */ "./resources/js/validations/form_contact.js");
+/* harmony import */ var _eventbus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../eventbus */ "./resources/js/eventbus.js");
 //
 //
 //
@@ -2000,11 +2001,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      loading: false,
       message: {
         name: "",
         email: "",
@@ -2017,7 +2023,12 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
+    var _this = this;
+
     this.$store.dispatch("setIpAddress");
+    _eventbus__WEBPACK_IMPORTED_MODULE_2__["default"].$on("close-loading", function (data) {
+      if (data == false) _this.loading = false;
+    });
   },
   validations: {
     message: _validations_form_contact__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -2056,6 +2067,7 @@ __webpack_require__.r(__webpack_exports__);
           instance.hide({
             transitionOut: "fadeOut"
           }, toast, "button");
+          vm.loading = true;
           vm.$store.dispatch("saveContact", vm.formData);
         }, true], ["<button>Não</button>", function (instance, toast) {
           instance.hide({
@@ -6873,7 +6885,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Ope
 exports.push([module.i, "@import url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);", ""]);
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  font-family: \"Open Sans\", sans-serif;\n  min-height: 100vh;\n  width: 100%;\n  background: #c850c0;\n  background: linear-gradient(45deg, #4158d0, #c850c0);\n}\n#app div main {\n  min-height: calc(100vh - 104.8px - 59px);\n}\n#app div main section .slide-fade-enter-active {\n  transition: all 0.3s ease;\n}\n#app div main section .slide-fade-leave-active {\n  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);\n}\n#app div main section .slide-fade-enter,\n#app div main section .slide-fade-leave-to {\n  transform: translateX(10px);\n  opacity: 0;\n}\n#app div main section div table {\n  border-collapse: collapse;\n  border-radius: 10px;\n  box-shadow: 0px 0px 14px -2px #000000;\n  overflow: hidden;\n}\n#app div main section div table thead tr {\n  height: 51px;\n  background: #36304a;\n  color: #fff;\n}\n#app div main section div table thead th {\n  border-top: 0px;\n  border-bottom: 0px;\n}\n#app div main section div table tbody {\n  background-color: #fff;\n  color: #808080;\n}\n#app div main section div table tbody tr:hover {\n  color: #555555;\n  background-color: #f5f5f5;\n  cursor: pointer;\n}\n#app div main section div form {\n  background-color: transparent;\n  border: 2px solid #fff;\n  border-radius: 10px;\n  box-shadow: 0px 0px 14px -2px #000000;\n  padding: 2%;\n}\n#app div main section div form .custom-file-input ~ .custom-file-label::after {\n  content: \"Buscar\";\n}\n#app div main section div form h2 {\n  color: white;\n}\n#app div main section div form button {\n  border-radius: 15px;\n  border: none;\n  text-transform: uppercase;\n  font-weight: bold;\n  height: 42px;\n}\n#app div main section div form .invalid-feedback {\n  color: white;\n  font-style: italic;\n}", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\nbody {\n  font-family: \"Open Sans\", sans-serif;\n  min-height: 100vh;\n  width: 100%;\n  background: #c850c0;\n  background: linear-gradient(45deg, #4158d0, #c850c0);\n}\n#app div main {\n  min-height: calc(100vh - 104.8px - 59px);\n}\n#app div main section .slide-fade-enter-active {\n  transition: all 0.3s ease;\n}\n#app div main section .slide-fade-leave-active {\n  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);\n}\n#app div main section .slide-fade-enter,\n#app div main section .slide-fade-leave-to {\n  transform: translateX(10px);\n  opacity: 0;\n}\n#app div main section div table {\n  border-collapse: collapse;\n  border-radius: 10px;\n  box-shadow: 0px 0px 14px -2px #000000;\n  overflow: hidden;\n}\n#app div main section div table thead tr {\n  height: 51px;\n  background: #36304a;\n  color: #fff;\n}\n#app div main section div table thead th {\n  border-top: 0px;\n  border-bottom: 0px;\n}\n#app div main section div table tbody {\n  background-color: #fff;\n  color: #808080;\n}\n#app div main section div table tbody tr:hover {\n  color: #555555;\n  background-color: #f5f5f5;\n  cursor: pointer;\n}\n#app div main section div form {\n  background-color: transparent;\n  border: 2px solid #fff;\n  border-radius: 10px;\n  box-shadow: 0px 0px 14px -2px #000000;\n  padding: 2%;\n}\n#app div main section div form .custom-file-input ~ .custom-file-label::after {\n  content: \"Buscar\";\n}\n#app div main section div form h2 {\n  color: white;\n}\n#app div main section div form button {\n  border-radius: 15px;\n  border: none;\n  text-transform: uppercase;\n  font-weight: bold;\n  height: 42px;\n}\n#app div main section div form .invalid-feedback {\n  color: white;\n  font-style: italic;\n}\n#app div main section div .loading {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  z-index: 9999999999;\n  overflow: hidden;\n}\n#app div main section div .lds-dual-ring {\n  width: 80px;\n  margin-top: 200px !important;\n  margin-left: 500px !important;\n  height: 80px;\n}\n#app div main section div .lds-dual-ring:after {\n  content: \" \";\n  display: block;\n  width: 64px;\n  height: 64px;\n  margin: 8px;\n  border-radius: 50%;\n  border: 6px solid #bd67f7;\n  border-color: #bd67f7 transparent #bd67f7 transparent;\n  -webkit-animation: lds-dual-ring 1.2s linear infinite;\n          animation: lds-dual-ring 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}", ""]);
 
 // exports
 
@@ -40388,6 +40400,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
+    _vm.loading
+      ? _c("div", { staticClass: "loading " }, [
+          _c("div", { staticClass: "lds-dual-ring" })
+        ])
+      : _vm._e(),
+    _vm._v(" "),
     _c(
       "form",
       {
@@ -59808,6 +59826,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/eventbus.js":
+/*!**********************************!*\
+  !*** ./resources/js/eventbus.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+var EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
+/* harmony default export */ __webpack_exports__["default"] = (EventBus);
+
+/***/ }),
+
 /***/ "./resources/js/routes/index.js":
 /*!**************************************!*\
   !*** ./resources/js/routes/index.js ***!
@@ -59854,6 +59889,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _eventbus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../eventbus */ "./resources/js/eventbus.js");
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -59895,7 +59932,6 @@ var resource = 'api/contact';
     },
     saveContact: function saveContact(_ref2, payload) {
       var commit = _ref2.commit;
-      // this.message.sender_ip = this.$store.getters.ipAddress;
       axios.post("".concat(resource), payload, {
         headers: {
           'Content-Type': "multipart/form-data; charset=utf-8; boundary=" + Math.random().toString().substr(2)
@@ -59912,6 +59948,8 @@ var resource = 'api/contact';
           icon: 'fa fa-envelope',
           message: error.response
         });
+      })["finally"](function () {
+        return _eventbus__WEBPACK_IMPORTED_MODULE_2__["default"].$emit('close-loading', false);
       });
     }
   }
@@ -59935,7 +59973,6 @@ var phone = vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["helpers"].reg
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: {
     required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["required"],
-    alpha: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["alpha"],
     maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["maxLength"])(100),
     minLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__["minLength"])(5)
   },

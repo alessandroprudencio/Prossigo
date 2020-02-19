@@ -13,7 +13,6 @@ const phone = helpers.regex(
 export default {
   name: {
     required,
-    alpha,
     maxLength: maxLength(100),
     minLength: minLength(5)
   },

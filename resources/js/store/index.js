@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import EventBus from '../eventbus'
 
 Vue.use(Vuex)
 
@@ -40,8 +41,6 @@ export default new Vuex.Store({
                 .catch(error => console.log(error))
         },
         saveContact({ commit }, payload) {
-            // this.message.sender_ip = this.$store.getters.ipAddress;
-            
             axios.post(`${resource}`, payload, {
                 headers: {
                     'Content-Type': "multipart/form-data; charset=utf-8; boundary=" + Math.random().toString().substr(2)
@@ -59,7 +58,7 @@ export default new Vuex.Store({
                         icon: 'fa fa-envelope',
                         message: error.response
                     })
-                })
+                }).finally(() =>   EventBus.$emit('close-loading', false) )
 
         },
     }

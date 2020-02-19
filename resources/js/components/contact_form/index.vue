@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <div class="loading " v-if="loading">
+        <div class="lds-dual-ring"></div>
+    </div>
     <form enctype="multipart/form-data" @submit.prevent="submit">
       <h2 class="text-center teste">Entre em contato</h2>
       <div class="mt-4">
@@ -91,10 +94,12 @@
 <script>
 import { mapActions } from "vuex";
 import validationContactForm from "../../validations/form_contact";
+import EventBus from '../../eventbus'
 
 export default {
   data() {
     return {
+      loading: false,
       message: {
         name: "",
         email: "",
@@ -108,6 +113,9 @@ export default {
   },
   created() {
     this.$store.dispatch("setIpAddress");
+    EventBus.$on("close-loading", data => {
+      if (data == false) this.loading = false;
+    });
   },
   validations: {
     message: validationContactForm
@@ -144,6 +152,7 @@ export default {
             "<button><b>Sim</b></button>",
             function(instance, toast) {
               instance.hide({ transitionOut: "fadeOut" }, toast, "button");
+              vm.loading = true;
               vm.$store.dispatch("saveContact", vm.formData);
             },
             true
@@ -178,6 +187,3 @@ export default {
   }
 };
 </script>
-
-<style>
-</style>

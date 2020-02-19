@@ -12,6 +12,7 @@ Vue.use(Vuelidate)
 import Pagination from 'laravel-vue-pagination'
 Vue.component('pagination', Pagination);
 
+
 window.iziToast = require('izitoast')
 
 iziToast.settings({
