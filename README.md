@@ -23,7 +23,11 @@ Clonar o repositório
 https://github.com/alessandroprudencio/Teste-Prossigo.git
 ```
 
-Certifique que de sue banco de dados ja pronto para ser acessado.
+
+Certifique-se que sua  serviço do MySQL  esteja iniciado e a conexão local com o banco de dados esteja funcionando.
+
+Crie o seu banco de dados com o nome que desejar e lembre se das crenciais, pois sera solicitado...
+
 
 ** Instalação Automatizada **
 

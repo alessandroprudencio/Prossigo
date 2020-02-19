@@ -47,6 +47,8 @@ read DbUsername
 echo DB_PASSWORD '( senha adm do banco )' ?
 read DbPassword
 
+echo 'Agora vamos configurar o servidor de email ...'
+
 echo MAIL_DRIVER '( ex: smtp )' ?
 read MailDriver
 
@@ -97,7 +99,7 @@ MAIL_PASSWORD=$MailPassword
 MAIL_ENCRYPTION=$MailEncryption
 MAIL_RECEIVES_MESSAGE=$MailReceivesMessage
 MAIL_FROM_NAME='Alessadro - Teste Prossigo'
-" > test.env
+" > .env
 
 php artisan migrate:refresh
 
