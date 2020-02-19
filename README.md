@@ -26,7 +26,7 @@ https://github.com/alessandroprudencio/Teste-Prossigo.git
 
 Certifique-se que sua  serviço do MySQL  esteja iniciado e a conexão local com o banco de dados esteja funcionando.
 
-Crie o seu banco de dados com o nome que desejar e lembre se das crenciais, pois sera solicitado...
+Crie o seu banco de dados com o nome que desejar e lembre se das crendenciais, pois serão solicitadas...
 
 
 ** Instalação Automatizada **

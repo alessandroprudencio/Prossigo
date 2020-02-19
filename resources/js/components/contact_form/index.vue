@@ -187,3 +187,11 @@ export default {
   }
 };
 </script>
+
+<style lang="css" scoped>
+      @media only screen and (max-width: 992px) {
+        #app div main section div .lds-dual-ring{
+            margin-left:120px !important;
+       }
+     }
+</style>
