@@ -35,7 +35,7 @@ Dentro do projeto existe um arquivo .sh, abra o projeto em algum Bash e na raiz 
 ```
 \.sh
 ```
-Ao ser executado ira  verificar o php, laravel e composer instalados em sua maquina, em seguida sera preciso configurar o projeto para ser executado, mas fique tranquilo! os campos irão aparecer na tela, **cuidado com os caracteres especiais** pois esse arquivo sera usado para que tudo funcione corretamente, mas caso ocorra algum problema voce mesmo podera ver e editar um arquivo co nome de **.env ** .Se tudo ocorrer bem, script ira executar a criação das tabelas no banco de dados...Logo em seguida vem os testes, caso ocorra algum teste não passe  o serviço é interrompido, se todos os testes retornarem valídos a aplicaçaõ será iniciada e pronto para uso...
+Ao ser executado ira  verificar o php, laravel e composer instalados em sua maquina, em seguida sera preciso configurar o projeto para ser executado, mas fique tranquilo! os campos irão aparecer na tela, **cuidado com os caracteres especiais** pois esse arquivo sera usado para que tudo funcione corretamente, mas caso ocorra algum problema voce mesmo podera ver e editar um arquivo co nome de **.env** .Se tudo ocorrer bem, script ira executar a criação das tabelas no banco de dados...Logo em seguida vem os testes, caso ocorra algum teste não passe  o serviço é interrompido, se todos os testes retornarem valídos a aplicaçaõ será iniciada e pronto para uso...
 
 
 
