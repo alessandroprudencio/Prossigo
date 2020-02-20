@@ -1,6 +1,6 @@
 #  Prossigo
 
-Página com formulário para entrar em contato e listagem de contatos realizados.
+Página com formulário para entrar em contato e listagem de contatos realizados, utilizando o framework Vuejs para a construção de interfaces de usuário e Laravel no backend
 
 ## Começando
 
