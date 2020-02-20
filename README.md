@@ -15,7 +15,7 @@ composer: ^1.9.3
 ```
 
 
-### Instalação Manual
+### Instalação
 
 
 Clonar o repositório
