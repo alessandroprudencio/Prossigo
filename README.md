@@ -29,7 +29,7 @@ Certifique-se que sua  serviço do MySQL  esteja iniciado e a conexão local com
 Crie o seu banco de dados com o nome que desejar e lembre se das crendenciais, pois serão solicitadas...
 
 
-** Instalação Automatizada **
+**Instalação Automatizada**
 
 Dentro do projeto existe um arquivo .sh, abra o projeto em algum Bash e na raiz execute o comando :
 ```
