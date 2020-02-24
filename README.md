@@ -20,7 +20,7 @@ composer: ^1.9.3
 
 Clonar o repositório
 ```
-https://github.com/alessandroprudencio/Teste-Prossigo.git
+https://github.com/alessandroprudencio/Prossigo.git
 ```
 
 
